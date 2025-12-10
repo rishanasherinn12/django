@@ -1,0 +1,33 @@
+{% extends "Base.html" %}
+{% block title %}Members | Library Management{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h3 class="text-center mb-4"><b>Registered Members</b></h3>
+
+    {% if members %}
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered text-center align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for member in members %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ member.username }}</td>
+                    <td>{{ member.email }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+        <p class="text-center text-muted">No members found.</p>
+    {% endif %}
+</div>
+{% endblock %}

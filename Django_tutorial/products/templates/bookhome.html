@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container my-4">
+    <div class="row">
+        {% for book in books %}
+
+        <div class="col-md-2 mb-lg-5 d-flex">
+            <div class="card book-card flex-fill">
+                {% if book.book_image %}
+                <img src="{{ book.book_image.url }}" class="card-img-top" alt="{{ book.book_name }}">
+                {% else %}
+                <img src="{% static 'images/defaultBook.jpg' %}" class="card-img-top" alt="No Image">
+                {% endif %}
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">{{ book.book_name }}</h5>
+                    <p class="card-text text-muted">by {{ book.book_author }}</p>
+                    <p class="card-text">{{ book.book_description|truncatewords:15 }}</p>
+                    <p class="card-text fw-bold">₹{{ book.book_price }}</p>
+                    <!-- Just the buttons -->
+                    <div class="mt-auto d-flex justify-content-between">
+
+                      <a href="{% url 'Editbook' book.id %}" class="btn btn-light btn-sm w-50 me-2">Edit</a>
+                      <a href="{% url 'Deletebook' book.id %}" class="btn btn-dark btn-sm w-50 me-2">Delete</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
