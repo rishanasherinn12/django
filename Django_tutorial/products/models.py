@@ -3,16 +3,12 @@ from django.urls import reverse
 # from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
-# class CustomUser(AbstractUser):
-#     phone_number
 
 class Products(models.Model):
     name=models.CharField(max_length=255)
     price = models.FloatField()
     stock = models.IntegerField()
     image = models.CharField(max_length=2500)
-
-
 
 
 class UserModel(models.Model):
@@ -32,15 +28,4 @@ class BookData(models.Model):
     def __str__(self):
         return self.book_name
     
-
-
-    # def get_absolute_url(self):
-    #     return reverse('book_detail', args=[str(self.id)])
-
-
-
-
-# class Offer(models.Model):
-#     code=models.CharField(max_length=20)
-#     description=models.CharField(max_length=255)
-#     discount=models.FloatField()
+ 
