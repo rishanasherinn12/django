@@ -28,6 +28,3 @@ This project helped me build a strong foundation in Django and prepared me for l
 It is a beginner-friendly project and a great starting point for anyone learning Django.
 
 ---
-
-If you want, I can also give you a short version of this for the GitHub *About* section.
-
